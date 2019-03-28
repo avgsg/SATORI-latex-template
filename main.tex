@@ -1,0 +1,174 @@
+% 16:9 screen ratio
+\documentclass[aspectratio=169]{beamer}
+% 4:3 screen ratio
+%\documentclass[aspectratio=43]{beamer}
+
+% Packages {{{
+\usepackage[utf8]{inputenc}
+\usepackage{color}
+\usepackage{fontenc}
+\usepackage{booktabs}
+\usepackage{colortbl}
+\usepackage{tikz}
+\usepackage{blindtext}
+\usepackage{hyperref}
+%}}}
+
+\vfuzz=2.5pt
+
+% Commands {{{
+%}}}
+
+% Fonts {{{
+\setbeamerfont{title}{family=\fontfamily{Montserrat}, size=\LARGE}
+\setbeamercolor{title}{fg=black}
+
+\setbeamerfont{author}{family=\fontfamily{Merriweather}, size=\large}
+\setbeamercolor{author}{fg=black}
+
+\setbeamerfont{date}{family=\fontfamily{Merriweather}, size=\large}
+\setbeamercolor{date}{fg=black}
+
+\setbeamerfont{institute}{family=\fontfamily{Merriweather}, series=\bfseries, size=\small}
+\setbeamercolor{institute}{fg=black}
+
+\setbeamerfont{frametitle}{family=\fontfamily{montserrat}\selectfont, size=\LARGE}
+\setbeamercolor{frametitle}{fg=black}
+
+\setbeamerfont{framesubtitle}{family=\fontfamily{montserrat}\selectfont}
+\setbeamercolor{framesubtitle}{fg=black}
+
+\setbeamerfont{normal text}{family=\fontfamily{Merriweather}, size=\Large}
+\setbeamercolor{normal text}{fg=black}
+%}}}
+
+% Title page {{{
+\makeatletter
+\setbeamertemplate{title page}{
+    \begin{centering}
+        \vskip5em
+        % Title
+        \begin{beamercolorbox}[center]{title}
+            \usebeamerfont{title}\bf\inserttitle
+        \end{beamercolorbox}
+        
+        \vskip1.5em
+        
+        % Author's name
+        \begin{beamercolorbox}[center]{author}
+            \usebeamerfont{author}\insertauthor
+        \end{beamercolorbox}
+        
+        % Author's affiliation
+        \begin{beamercolorbox}[center]{institute}
+            \usebeamerfont{institute}\insertinstitute
+        \end{beamercolorbox}
+        
+        \vskip1em
+        
+        % Conference name
+        \begin{beamercolorbox}[center]{date}
+            \usebeamerfont{date}\insertdate
+        \end{beamercolorbox}
+        
+        \vskip1.5em
+        
+        % Logo
+        \usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par
+    \end{centering}
+}
+%}}}
+
+% Slides {{{
+\setbeamertemplate{caption}[numbered]
+\definecolor{satori}{HTML}{0b5394}
+\definecolor{satori-header-title}{HTML}{999999}
+
+    % Footnote
+\setbeamerfont{page number in head/foot}{size=\footnotesize}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}{
+    \begin{beamercolorbox}[]{footline}
+        \small
+        \hspace{1cm}\hfill\color{satori-header-title}\insertauthor\hfill%
+        \insertframenumber/\inserttotalframenumber\kern1em
+    \end{beamercolorbox}
+    \vskip1.0em
+}
+
+    % Header
+\setbeamertemplate{frametitle}{
+    \begin{beamercolorbox}[]{frametitle}
+        \color{satori-header-title}\centering\small\inserttitle
+    \end{beamercolorbox}
+    
+    \vskip-1.5em
+    
+    \begin{tikzpicture}[remember picture, overlay]
+        \node[anchor=north east,yshift=-15pt,xshift=-24pt] at (current page.north east) {\href{http://satori-project.net}{\includegraphics[height=0.9cm]{logos/satori-big-logo.pdf}}};
+    \end{tikzpicture}
+    
+    \begin{beamercolorbox}[]{frametitle}
+        \bf\insertframetitle
+    \end{beamercolorbox}
+    
+    \vskip-0.9em
+    \makebox[\linewidth][l]{\textcolor{satori}{\rule{\linewidth}{3pt}}}
+    
+    \vskip0.5em
+}
+
+
+%}}}
+
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ----- Title page content -----
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Title
+\title{TITLE: Title of the presentation}
+% Logo
+\titlegraphic{\href{http://satori-project.net}{\includegraphics[width=0.35\linewidth]{logos/combined-logo.pdf}}}
+% Author
+\author{Author's name, author@domain.edu}
+% University affiliation
+\institute{University of affiliation}
+% Conference name
+\date{Conference name, March 2019}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ----- General document content -----
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+{
+    \setbeamertemplate{footline}{}
+    \maketitle
+}
+\addtocounter{framenumber}{-1}
+\usebeamerfont{normal text}
+
+% Frames {{{
+
+\begin{frame}{Agenda}
+    \blindenumerate[5]
+\end{frame}
+
+\begin{frame}{Introduction}
+    \blindenumerate[5]
+\end{frame}
+
+\begin{frame}{SATORI logo}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.7\linewidth]{logos/satori-big-logo.pdf}
+        \caption{SATORI logo}
+        \label{fig:satori-logo}
+    \end{figure}
+\end{frame}
+
+%}}}
+
+\end{document}
