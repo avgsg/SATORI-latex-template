@@ -14,7 +14,7 @@
 \usepackage{hyperref}
 %}}}
 
-\vfuzz=2.5pt
+\vfuzz=30pt
 
 % Commands {{{
 %}}}
@@ -46,7 +46,7 @@
 \makeatletter
 \setbeamertemplate{title page}{
     \begin{centering}
-        \vskip5em
+        \vskip4.5em
         % Title
         \begin{beamercolorbox}[center]{title}
             \usebeamerfont{title}\bf\inserttitle
@@ -71,10 +71,12 @@
             \usebeamerfont{date}\insertdate
         \end{beamercolorbox}
         
-        \vskip1.5em
+        \vskip1em
         
         % Logo
         \usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par
+        
+        \vskip1em
     \end{centering}
 }
 %}}}
@@ -90,7 +92,9 @@
 \setbeamertemplate{footline}{
     \begin{beamercolorbox}[]{footline}
         \small
-        \hspace{1cm}\hfill\color{satori-header-title}\insertauthor\hfill%
+        \hspace{1cm}%
+        \href{http://satori-project.net}{\includegraphics[height=0.5cm]{logos/satori-combined-small-logo.pdf}}%
+        \hfill\color{satori-header-title}\insertauthor\hfill%
         \insertframenumber/\inserttotalframenumber\kern1em
     \end{beamercolorbox}
     \vskip1.0em
@@ -105,7 +109,7 @@
     \vskip-1.5em
     
     \begin{tikzpicture}[remember picture, overlay]
-        \node[anchor=north east,yshift=-15pt,xshift=-24pt] at (current page.north east) {\href{http://satori-project.net}{\includegraphics[height=0.9cm]{logos/satori-big-logo.pdf}}};
+        \node[anchor=north east,yshift=-15pt,xshift=-24pt] at (current page.north east) {\href{http://satori-project.net}{\includegraphics[height=0.9cm]{logos/satori-small-logo.pdf}}};
     \end{tikzpicture}
     
     \begin{beamercolorbox}[]{frametitle}
@@ -129,7 +133,7 @@
 % Title
 \title{TITLE: Title of the presentation}
 % Logo
-\titlegraphic{\href{http://satori-project.net}{\includegraphics[width=0.35\linewidth]{logos/combined-logo.pdf}}}
+\titlegraphic{\href{http://satori-project.net}{\includegraphics[width=0.6\linewidth]{logos/satori-combined-big-logo.pdf}}}
 % Author
 \author{Author's name, author@domain.edu}
 % University affiliation
