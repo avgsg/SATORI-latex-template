@@ -5,13 +5,8 @@
 
 % Packages {{{
 \usepackage[utf8]{inputenc}
-\usepackage{color}
-\usepackage{fontenc}
-\usepackage{booktabs}
-\usepackage{colortbl}
 \usepackage{tikz}
 \usepackage{blindtext}
-\usepackage{hyperref}
 %}}}
 
 \vfuzz=30pt
@@ -29,16 +24,17 @@
 \setbeamerfont{date}{family=\fontfamily{Merriweather}, size=\large}
 \setbeamercolor{date}{fg=black}
 
-\setbeamerfont{institute}{family=\fontfamily{Merriweather}, series=\bfseries, size=\small}
+\setbeamerfont{institute}{family=\fontfamily{Merriweather}, size=\small}
 \setbeamercolor{institute}{fg=black}
 
-\setbeamerfont{frametitle}{family=\fontfamily{montserrat}\selectfont, size=\LARGE}
+\setbeamerfont{frametitle}{family=\fontfamily{montserrat}, size=\LARGE}
 \setbeamercolor{frametitle}{fg=black}
 
-\setbeamerfont{framesubtitle}{family=\fontfamily{montserrat}\selectfont}
+\setbeamerfont{framesubtitle}{family=\fontfamily{montserrat}}
 \setbeamercolor{framesubtitle}{fg=black}
 
-\setbeamerfont{normal text}{family=\fontfamily{Merriweather}, size=\Large}
+\setbeamerfont{normal text}{size=\large}
+%\setbeamerfont{normal text}{family=\fontfamily{Merriweather}, size=\Large}
 \setbeamercolor{normal text}{fg=black}
 %}}}
 
@@ -46,13 +42,16 @@
 \makeatletter
 \setbeamertemplate{title page}{
     \begin{centering}
-        \vskip4.5em
+        \vbox{}
+        \vfill
+        \vskip1.5em
+        %\vskip4.5em
         % Title
         \begin{beamercolorbox}[center]{title}
             \usebeamerfont{title}\bf\inserttitle
         \end{beamercolorbox}
         
-        \vskip1.5em
+        \vskip1em
         
         % Author's name
         \begin{beamercolorbox}[center]{author}
@@ -75,8 +74,8 @@
         
         % Logo
         \usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par
-        
-        \vskip1em
+
+        \vskip1.5em
     \end{centering}
 }
 %}}}
@@ -93,7 +92,8 @@
     \begin{beamercolorbox}[]{footline}
         \small
         \hspace{1cm}%
-        \href{http://satori-project.net}{\includegraphics[height=0.5cm]{logos/satori-combined-small-logo.pdf}}%
+        % Footnote combined logo
+        %\href{http://satori-project.net}{\includegraphics[height=0.5cm]{logos/satori-combined-small-logo.pdf}}%
         \hfill\color{satori-header-title}\insertauthor\hfill%
         \insertframenumber/\inserttotalframenumber\kern1em
     \end{beamercolorbox}
@@ -131,7 +131,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Title
-\title{TITLE: Title of the presentation}
+\title{TITLE: Title of the presentation\\second line}
 % Logo
 \titlegraphic{\href{http://satori-project.net}{\includegraphics[width=0.6\linewidth]{logos/satori-combined-big-logo.pdf}}}
 % Author
@@ -156,6 +156,7 @@
 % Frames {{{
 
 \begin{frame}{Agenda}
+    \textbf{This is}\emph{~a test.}
     \blindenumerate[5]
 \end{frame}
 
