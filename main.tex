@@ -7,38 +7,52 @@
 \usepackage[utf8]{inputenc}
 \usepackage{tikz}
 \usepackage{blindtext}
+\usepackage{caption}
+\usepackage{biblatex}
 %}}}
 
 \vfuzz=30pt
 
 % Commands {{{
+\newcommand{\skipline}{\vspace{0.5em}}
 %}}}
 
+% References {{{
+% add references to bib.bib file
+\addbibresource{bib.bib}
+% }}}
+
 % Fonts {{{
-\setbeamerfont{title}{family=\fontfamily{Montserrat}, size=\LARGE}
+\setbeamerfont{title}{size=\fontsize{18pt}{18pt}}
 \setbeamercolor{title}{fg=black}
-
-\setbeamerfont{author}{%family=\fontfamily{Merriweather}, 
-size=\large}
+\setbeamerfont{author}{size=\fontsize{12pt}{12pt}}
 \setbeamercolor{author}{fg=black}
-
-\setbeamerfont{date}{%family=\fontfamily{Merriweather}, 
-size=\large}
+\setbeamerfont{date}{size=\fontsize{12pt}{12pt}}
 \setbeamercolor{date}{fg=black}
-
-\setbeamerfont{institute}{%family=\fontfamily{Merriweather}, 
-size=\small}
+\setbeamerfont{institute}{size=\fontsize{12pt}{12pt}}
 \setbeamercolor{institute}{fg=black}
-
-\setbeamerfont{frametitle}{family=\fontfamily{montserrat}, size=\LARGE}
+\setbeamerfont{frametitle}{size=\fontsize{14pt}{14pt}}
 \setbeamercolor{frametitle}{fg=black}
-
-\setbeamerfont{framesubtitle}{family=\fontfamily{montserrat}}
+\setbeamerfont{framesubtitle}{size=\fontsize{14pt}{14pt}}
 \setbeamercolor{framesubtitle}{fg=black}
-
-\setbeamerfont{normal text}{%family=\fontfamily{Merriweather}, 
-size=\Large}
+\setbeamerfont{normal text}{size={\fontsize{12pt}{12pt}}}
 \setbeamercolor{normal text}{fg=black}
+\setbeamerfont{itemize/enumerate body}{size={\fontsize{12pt}{12pt}}}
+\setbeamerfont{itemize/enumerate subbody}{size={\fontsize{10pt}{10pt}}}
+\setbeamertemplate{bibliography item}{\insertbiblabel}
+\setbeamertemplate{bibliography entry title}{}
+\setbeamertemplate{bibliography entry location}{}
+\setbeamertemplate{bibliography entry note}{}
+\setbeamercolor{bibliography item}{fg=black}
+\setbeamercolor{bibliography entry author}{fg=black}
+\setbeamercolor{bibliography entry title}{fg=black}
+\setbeamercolor{bibliography entry location}{fg=black}
+\setbeamercolor{bibliography entry note}{fg=black}
+\setbeamerfont{bibliography item}{size=\footnotesize}
+\setbeamerfont{bibliography entry author}{size=\footnotesize}
+\setbeamerfont{bibliography entry title}{size=\footnotesize,series=\bfseries}
+\setbeamerfont{bibliography entry location}{size=\footnotesize}
+\setbeamerfont{bibliography entry note}{size=\footnotesize}
 %}}}
 
 % Title page {{{
@@ -97,7 +111,8 @@ size=\Large}
         \hspace{1cm}%
         % Footnote combined logo
         %\href{http://satori-project.net}{\includegraphics[height=0.5cm]{logos/satori-combined-small-logo.pdf}}%
-        \hfill\color{satori-header-title}\insertauthor\hfill%
+        % \hfill\color{satori-header-title}\insertauthor\hfill%
+        \hfill
         \insertframenumber/\inserttotalframenumber\kern1em
     \end{beamercolorbox}
     \vskip1.0em
@@ -105,26 +120,26 @@ size=\Large}
 
     % Header
 \setbeamertemplate{frametitle}{
-    \begin{beamercolorbox}[]{frametitle}
-        \color{satori-header-title}\centering\small\inserttitle
-    \end{beamercolorbox}
+    % \begin{beamercolorbox}[]{frametitle}
+    %     \color{satori-header-title}\centering\small\inserttitle
+    % \end{beamercolorbox}
     
-    \vskip-1.5em
+    \vskip0em
     
     \begin{tikzpicture}[remember picture, overlay]
-        \node[anchor=north east,yshift=-15pt,xshift=-24pt] at (current page.north east) {\href{http://satori-project.net}{\includegraphics[height=0.9cm]{logos/satori-small-logo.pdf}}};
+        \node[anchor=north east,yshift=-0pt,xshift=-24pt] at (current page.north east) {\href{http://satori-project.net}{\includegraphics[height=0.9cm]{logos/satori-small-logo.pdf}}};
     \end{tikzpicture}
     
     \begin{beamercolorbox}[]{frametitle}
         \bf\insertframetitle
     \end{beamercolorbox}
     
-    \vskip-0.9em
+    \vskip-0.5em
     \makebox[\linewidth][l]{\textcolor{satori}{\rule{\linewidth}{3pt}}}
     \vskip-0.8em
+    \skipline
 }
-
-
+%}}}
 %}}}
 
 \makeatother
@@ -163,6 +178,23 @@ size=\Large}
     \blindenumerate[5]
 \end{frame}
 
+\begin{frame}{Font details}
+The font family is kept beamer's default. Although I haven't figured that out accurately, it seems to be \textbf{sans serif}.
+\vfill
+Font sizes:
+\begin{itemize}
+    \item title, 18pt
+    \item author, 12pt
+    \item date, 12pt
+    \item institute, 12pt
+    \item frame title, 14pt
+    \item frame subtitle, 14pt
+    \item normal text,12pt
+    \item itemize/enumerate body, 12pt
+    \item itemize/enumerate subbody, 10pt
+\end{itemize}
+\end{frame}
+
 \begin{frame}{Introduction}
     \blindenumerate[5]
 \end{frame}
@@ -170,10 +202,44 @@ size=\Large}
 \begin{frame}{SATORI logo}
     \begin{figure}
         \centering
-        \includegraphics[width=0.7\linewidth]{logos/satori-big-logo.pdf}
-        \caption{SATORI logo}
-        \label{fig:satori-logo}
+        \includegraphics[width=0.3\linewidth]{logos/satori-big-logo.pdf}
+        \caption{SATORI logo with numbering}
+        % \label{fig:satori-logo}
     \end{figure}
+    
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.3\linewidth]{logos/satori-big-logo.pdf}
+        \caption*{SATORI logo without numbering}
+        % \label{fig:satori-logo}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{SATORI logo}
+    \begin{minipage}[t]{0.49\linewidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=0.3\linewidth]{logos/satori-big-logo.pdf}
+            \caption{SATORI logo with numbering}
+            % \label{fig:satori-logo}
+        \end{figure}
+    \end{minipage}
+    \begin{minipage}[t]{0.49\linewidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=0.3\linewidth]{logos/satori-big-logo.pdf}
+            \caption*{SATORI logo without numbering}
+            % \label{fig:satori-logo}
+        \end{figure}
+    \end{minipage}
+\end{frame}
+
+\begin{frame}{Citations}
+    Example of footnote citation\footfullcite{icc20-netsharing}.
+    
+    Example of conventional citation \cite{icc20-netsharing}.
+    \vfill
+    \textbf{NB.} Add bibtex details to file bib.bib.
 \end{frame}
 
 \begin{frame}{Acknowledgements}
@@ -196,6 +262,10 @@ size=\Large}
         %\caption{SATORI logo}
         \label{fig:satori-logo-combined}
     \end{figure}
+\end{frame}
+
+\begin{frame}{References}
+    \printbibliography
 \end{frame}
 
 %}}}
